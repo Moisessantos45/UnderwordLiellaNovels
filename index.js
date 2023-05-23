@@ -30,7 +30,10 @@ let redisClient = createClient({
 
 redisClient.connect().catch(console.error);
 
-const redisStore = new RedisStore({ client: redisClient });
+const redisStore = new RedisStore({
+    client: redisClient,
+    prefix: "myapp:"
+});
 
 const secret = crypto.randomBytes(32).toString('hex');
 
