@@ -166,29 +166,29 @@ html(lang="en")
                             tr 
                                 td=datos.drive ? datos.drive.substr(0,80) : ''
                                 td=datos.mega ? datos.mega.substr(0,80) : ''    
-                table.table3
-                    caption Lista de capitulos
-                    thead
-                        tr
-                            th Capitulo
-                            th Titulo
-                            th Nomnbre en ingles
-                    tbody
-                        each capit in datosCapi
-                            tr
-                                td= capit.capitulo
-                                td= capit.titulo
-                                td= capit.nameingles
-                table.table4
-                    thead
-                        tr
-                            th Contenido
-                            th Numero
-                    tbody
-                        each capit in datosCapi
-                            tr
-                                td= capit.texto.substr(0,165)
-                                td= capit.num
+                //- table.table3
+                //-     caption Lista de capitulos
+                //-     thead
+                //-         tr
+                //-             th Capitulo
+                //-             th Titulo
+                //-             th Nomnbre en ingles
+                //-     tbody
+                //-         each capit in datosCapi
+                //-             tr
+                //-                 td= capit.capitulo
+                //-                 td= capit.titulo
+                //-                 td= capit.nameingles
+                //- table.table4
+                //-     thead
+                //-         tr
+                //-             th Contenido
+                //-             th Numero
+                //-     tbody
+                //-         each capit in datosCapi
+                //-             tr
+                //-                 td= capit.texto.substr(0,165)
+                //-                 td= capit.num
         section.datos_base-two.datos_ocul-visit         
                 table
                     thead
