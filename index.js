@@ -23,8 +23,8 @@ const port = process.env.PORT || 4000;
 let redisClient = createClient({
     password: process.env.REDIS_PASS,
     socket: {
-        host: process.env.REDIS_HOST,
-        port: process.env.REDIS_PORT
+        host: process.env.REDIS_HOSTS,
+        port: process.env.REDIS_PORTS
     }
 });
 
