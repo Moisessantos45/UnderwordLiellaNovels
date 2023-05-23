@@ -70,34 +70,34 @@ const paginaKurasu = async (req, res) => {
     })
 }
 
-export const controllers = {
-    paginaCapitulo: async (req, res) => {
-        const nameingles = req.params.nameingles;
-        const capitulo = await Capitulos.findAll({
-            where: {
-                nameingles: nameingles
-            }
-        });
-        const capituloAnterior = await Capitulos.findOne({
-            where: {
-                num: capitulo[0].num - 1
-            }
-        });
-        console.log("anterior", capituloAnterior)
-        const capituloSiguiente = await Capitulos.findOne({
-            where: {
-                num: capitulo[0].num + 1
-            }
-        });
-        console.log("siguiente", capituloSiguiente)
-        res.render(`partials/${nameingles}`, {
-            pagina: nameingles,
-            capitulo: capitulo,
-            capituloAnterior: capituloAnterior ? capituloAnterior.nameingles : null,
-            capituloSiguiente: capituloSiguiente ? capituloSiguiente.nameingles : null
-        });
-    }
-};
+// export const controllers = {
+//     paginaCapitulo: async (req, res) => {
+//         const nameingles = req.params.nameingles;
+//         const capitulo = await Capitulos.findAll({
+//             where: {
+//                 nameingles: nameingles
+//             }
+//         });
+//         const capituloAnterior = await Capitulos.findOne({
+//             where: {
+//                 num: capitulo[0].num - 1
+//             }
+//         });
+//         console.log("anterior", capituloAnterior)
+//         const capituloSiguiente = await Capitulos.findOne({
+//             where: {
+//                 num: capitulo[0].num + 1
+//             }
+//         });
+//         console.log("siguiente", capituloSiguiente)
+//         res.render(`partials/${nameingles}`, {
+//             pagina: nameingles,
+//             capitulo: capitulo,
+//             capituloAnterior: capituloAnterior ? capituloAnterior.nameingles : null,
+//             capituloSiguiente: capituloSiguiente ? capituloSiguiente.nameingles : null
+//         });
+//     }
+// };
 
 
 const paginaNovela = async (req, res) => {
@@ -108,8 +108,8 @@ const paginaNovela = async (req, res) => {
         },
     });
     await aumentarVisitas(nombreNovelas)
-    const nombreVista = nombreNovelas.toUpperCase(); // Convertir a mayúsculas
-    res.render(nombreVista, {
+    // const nombreVista = nombreNovelas.toUpperCase(); // Convertir a mayúsculas
+    res.render(nombreNovelas, {
         pagina: nombreNovelas,
         volumene,
     });

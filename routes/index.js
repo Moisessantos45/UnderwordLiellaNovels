@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-paginaInicio,paginaNovela,paginaShimotsuki,paginaKurasu,controllers,login,imagen
+paginaInicio,paginaNovela,paginaShimotsuki,paginaKurasu,login,imagen
 } from "../controllers/paginaControler.js"
 
 import { peticion } from '../controllers/login.js';
@@ -15,7 +15,7 @@ router.get("/:nombre",paginaNovela);
 
 router.get("/SHIMOTSUKI-SAN",paginaShimotsuki)
 
-router.get("/partials/:nameingles", controllers.paginaCapitulo);
+// router.get("/partials/:nameingles", controllers.paginaCapitulo);
 
 // router.get("/partials/capitulos", controllers.paginaCapitulo);
 

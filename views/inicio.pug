@@ -47,7 +47,7 @@ html(lang="en")
         // columnas de las informa de cada novela
         each novela in novelass
             figure
-                a(href=`/${novela.nombre.toLowerCase().split(" ")[0]}`)
+                a(href=`/${novela.nombre.split(" ")[0]}`)
                     img(src=novela.imagen alt='')
                 h4=novela.nombre
     section.col-novels
@@ -56,7 +56,7 @@ html(lang="en")
         // columnas de las informa de cada novela
         each novelsweb in noveNw
             figure
-                a(href=`/${novelsweb.nombre.toLowerCase().split(" ")[0]}`)
+                a(href=`/${novelsweb.nombre.split(" ")[0]}`)
                     img(src=novelsweb.imagen alt='')
                 h4=novelsweb.nombre
     section.col-novels
@@ -65,7 +65,7 @@ html(lang="en")
         // columnas de las informa de cada novela
         each novelsoriginales in noveOri
             figure
-                a(href=`/${novelsoriginales.nombre.toLowerCase().split(" ")[0]}`)
+                a(href=`/${novelsoriginales.nombre.split(" ")[0]}`)
                     img(src=novelsoriginales.imagen alt='')
                 h4=novelsoriginales.nombre
     section.col-novels
@@ -74,7 +74,7 @@ html(lang="en")
         // columnas de las informa de cada novela
         each manga in mangas
             figure
-                a(href=`/${manga.nombre.toLowerCase().split(" ")[0]}`)
+                a(href=`/${manga.nombre.split(" ")[0]}`)
                     img(src=manga.imagen alt='')
                 h4=manga.nombre
 
