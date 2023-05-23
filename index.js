@@ -21,7 +21,7 @@ db.authenticate()
 const port = process.env.PORT || 4000;
 
 let redisClient = createClient({
-    url: process.env.REDIS_URL
+    url: process.env.REDISCLOUD_URL
 });
 
 redisClient.connect().catch(console.error);
