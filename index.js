@@ -21,15 +21,16 @@ db.authenticate()
 const port = process.env.PORT || 4000;
 
 let redisClient = createClient({
-    url: process.env.REDISCLOUD_URL
+    password: process.env.REDIS_PASS,
+    socket: {
+        host: process.env.REDIS_HOST,
+        port: process.env.REDIS_PORT
+    }
 });
 
 redisClient.connect().catch(console.error);
 
-let redisStore = new RedisStore({
-    client: redisClient,
-    prefix: "myapp:",
-});
+const redisStore = new RedisStore({ client: redisClient });
 
 const secret = crypto.randomBytes(32).toString('hex');
 
