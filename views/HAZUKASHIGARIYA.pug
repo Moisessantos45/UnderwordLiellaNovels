@@ -1,0 +1,94 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title HAZUKASHIGARIYA NO TSUMA TO SHINKON SEIKATSU HAJIMEMASHITA.
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/HAZUKASHIGARIYA.css')
+        link(rel='icon' href='/img/omai.ico')
+    body
+    section.title
+        div.line
+        h1 HAZUKASHIGARIYA NO TSUMA TO SHINKON SEIKATSU HAJIMEMASHITA.
+        h3 Empecé una vida de recién casados con mi esposa tímida.
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/hazukashigariya.jpg' alt='')
+        h3 G&eacute;neros: Manga, Familia, Romance ,Recuentos de la vida,Yonkoma.
+    
+    section.minfo
+        table            
+            tr
+                th Estado
+            tr
+                th Publicandose
+                td   
+            tr
+                th Titulos Alternativos:
+                td
+                    | &#x6065;&#x305A;&#x304B;&#x3057;&#x304C;&#x308A;&#x5C4B;&#x306E;&#x59BB;&#x3068;&#x65B0;&#x5A5A;&#x751F;&#x6D3B;&#x306F;&#x3058;&#x3081;&#x307E;&#x3057;&#x305F; 
+                    br
+                    | Empec&eacute; una vida de reci&eacute;n casados con mi esposa t&iacute;mida
+            tr
+                th Tipo:
+                td Manga
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del japones al Espa&ntilde;ol:
+                td ????
+            tr
+                th Corrector
+                td ????
+            tr
+                th Editor de Ilustraciones
+                td ????
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | Hasta ahora, sol&iacute;a comprar bentous en la tienda de conveniencia de camino a casa, comer, ba&ntilde;arme y acostarme&mldr; Pero ahora es diferente. Tengo una linda esposa &iexcl;Est&aacute; muy lejos! Espera &iquest;Es peque&ntilde;a? Comedia rom&aacute;ntica de reci&eacute;n casados con una t&iacute;mida pero emocionante esposa m&aacute;s linda~
+    
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                div.capit
+                    a(href='https://lectortmo.com/viewer/d654bef77549cf39c5c140ee634fa206/paginated')
+                        img(src='img/flecha.png' alt='')
+                        |  Capitulo 1
+                    a(href='https://lectortmo.com/viewer/ed8a185aa4ab8aa40fd90e070cda101a/paginated')
+                        img(src='img/flecha.png' alt='')
+                        |  Capitulo 2
+                    a(href='https://lectortmo.com/viewer/a365272e8dde0dd57be6f49f203b2a7b/paginated')
+                        img(src='img/flecha.png' alt='')
+                        |  Capitulo 3
+                    a(href='https://lectortmo.com/viewer/ec6afe963e74e09eb36dd2bf89d9ecd3/paginated')
+                        img(src='img/flecha.png' alt='')
+                        |  Capitulo 4
+      
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

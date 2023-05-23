@@ -1,0 +1,111 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title TSUKUSHITAGARI NA UCHI NO YOME NITSUITE DERE TEMOII KA?
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/TSUKUSHITAGARI.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    section.title
+        div.line
+        h1 TSUKUSHITAGARI NA UCHI NO YOME NITSUITE DERE TEMOII KA?
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/tsukushigari.jpg' alt='')
+        h3 G&eacute;neros: Comedia, Recuentos de la vida, Romance, Vida escolar.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Ononata Manimani
+            tr
+                th Ilustrador:
+                td Ayamy.
+            tr
+                th Editorial:
+                td SB
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td Damvert
+            tr
+                th Corrector
+                td Shigatsu Translations
+            tr
+                th Editor de Ilustraciones
+                td F3L
+            tr
+                th Maquetador de PDF:
+                td ??
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | &laquo;&iexcl;Shinyama Minato-kun&mldr;! &iquest;Me har&iacute;as tu esposa, por favor?&raquo; 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Hanae Riko, la chica m&aacute;s hermosa de la escuela me propuso matrimonio, y antes de que me diera cuenta, mi vida de reci&eacute;n casado ya hab&iacute;a comenzado. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Mi esposa era tan hermosa que siempre me sigue felizmente todos los d&iacute;as y no quiere separarse de m&iacute; ni un momento. Siempre hace la limpieza, la comida, costura y otras tareas dom&eacute;sticas como una profesional, y sus habilidades son impecables. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Adem&aacute;s, es extremadamente devota a m&iacute;. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&laquo;He hecho una fortuna en inversiones para que Minato-kun pueda jugar y vivir el resto de su vida. &Uacute;salo como quieras&raquo;. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Este tipo de servicio exagerado ocurr&iacute;a regularmente. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Y no pude evitar pensar que era adorable c&oacute;mo mov&iacute;a su cola invisible tan salvajemente cada vez que le dedicaba una sola palabra de elogio. S&iacute;, frente a m&iacute;, Riko era como un perro peque&ntilde;o que ama demasiado a su due&ntilde;o. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Pero no puedo ser engre&iacute;do. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Esto era un matrimonio por contrato. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Riko no estaba enamorada de m&iacute;. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Cuando finalmente le pregunt&eacute; por qu&eacute; segu&iacute;a siendo tan devota de m&iacute; a pesar de estar bajo contrato, ella infl&oacute; sus mejillas y respondi&oacute;. 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&laquo;Minato-kun, eres demasiado cauteloso con la propuesta&mldr;&raquo; 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Eh&mldr; &iquest;entonces est&aacute; bien que nos casemos bajo contrato&mldr;? 
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;Esta fue una historia de amor que comenz&oacute; con un matrimonio en el d&iacute;a cero y fue s&oacute;lo una historia de amor feliz y unilateral.
+
+    figure.backgraoud
+        img(src='img/tsukushigariback2.jpeg' alt='')
+
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

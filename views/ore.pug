@@ -1,0 +1,118 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title ORE NO IINAZUKE NI NATTA JIMIKO IE DE WA KAWAII SHIKA NAI
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/iinazuke.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    section.title
+        div.line
+        h1 ORE NO IINAZUKE NI NATTA JIMIKO IE DE WA KAWAII SHIKA NAI
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/miesposa.jpg' alt='')
+        h3 G&eacute;neros: Escolar, Recuentos de la vida, Romance.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Yuu Hidaka
+            tr
+                th Ilustrador:
+                td Tantan.
+            tr
+                th Editorial:
+                td Fantasia Bunko.
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td Charlye
+            tr
+                th Editor de Ilustraciones
+                td Rouni
+            tr
+                th Maquetador de PDF:
+                td Rouni
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    b  «Onii-san, felicitaciones por tu matrimonio. Esta persona es tu novia».
+                    br
+                    b  «M-mi nombre es Watanae Yuuka… estoy en la misma clase que tú…» 
+                    br
+                    |                         Mi nombre es Sakata Yuichi. Estoy en mi segundo año de secundaria. 
+                    br
+                    |                         ¿Debido a las circunstancias de mis padres, de repente me caso…? 
+                    br
+                    |                         Además, mi compañera es una chica sencilla, Watanae-san. Durante mi tercer año de secundaria,
+                    |                         pasé por una mala experiencia. Desde entonces, solo me han interesado las heroínas 2D. De
+                    |                         ninguna manera me interesaría una chica 3D. Eso fue lo que pensé, pero… 
+                    br
+                    b      «…Bueno, entonces, ¿quién es tu heroína favorita en este momento?» 
+                    br
+                    |                         Resulta que en realidad era una otaku y se vuelve muy habladora cuando la conoces. Ella siempre
+                    |                         participaría felizmente en nuestras conversaciones. Me mostró cosas que nunca hubiera esperado
+                    |                         de una chica de mi clase. 
+                    br
+                    b      «Err, ya que vamos a vivir juntos… ¿Está bien si te llamo Yuu-kun?»
+                    br
+                    |                         Y, en el momento en que bajara la guardia, instantáneamente intentaría acortar la distancia
+                    |                         entre nosotros. Y lo que es más… 
+                    br
+                    b
+                    | «Solo entre tú y yo, en realidad soy la actriz de voz de Yuuna Izumi de『 Alice Stage 』. ¡Gracias
+                    | por apoyarme siempre! «
+                    br
+                    |                         Es un secreto para todos los demás, ¿pero resulta que en realidad es la actriz de voz de mi
+                    |                         heroína favorita? 
+                    br
+                    |                         ¡Solo me interesan las heroínas 2D! 
+                    br
+                    |                         Pero, el verdadero yo de Yuuka, que solo muestra cuando está a solas conmigo, ¡no es más que
+                    |                         lindo! 
+                    br
+                    |                         Esta es la historia de Yuuka y yo, comenzando como prometidas. ¡Una comedia romántica
+                    |                         reconfortante y caótica!
+
+    figure.backgraoud
+        img(src='img/back1.jpg' alt='')
+
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

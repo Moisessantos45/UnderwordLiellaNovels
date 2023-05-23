@@ -1,0 +1,94 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title RYOUSHIN NO SHAKKIN O KATAGAWARI SHITE MORAU JOUKEN WA NIHON'ICHI KAWAII JOSHIKOUSEI TO ISSHO NI KURASU KOTO DESHITA
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/RYOUSHIN.css')
+        link(rel='icon' href='/img/omai.ico')
+    body
+    section.title
+        div.line
+        h1 RYOUSHIN NO SHAKKIN O KATAGAWARI SHITE MORAU JOUKEN WA NIHON'ICHI KAWAII JOSHIKOUSEI TO ISSHO NI KURASU KOTO DESHITA
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/ryoushin.jpg' alt='')
+        h3 G&eacute;neros: Escolar, Recuentos de la vida, Romance.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Amane Megumi
+            tr
+                th Ilustrador:
+                td Kakao.
+            tr
+                th Editorial:
+                td Fantasia Bunko
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td Damvert
+            tr
+                th Editor de Ilustraciones
+                td AxelS
+            tr
+                th Maquetador de PDF:
+                td ??
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | El protagonista, Yoshizumi Yuya, estaba siendo presionado para pagar la deuda dejada por sus padres, que hab&iacute;an huido al extranjero. Fue su compa&ntilde;era de clase, Hitotsuba Kaede, elegida como la estudiante m&aacute;s hermosa de Jap&oacute;n, quien le salv&oacute; de esta crisis de vida o muerte. Sin embargo, hab&iacute;a una trampa. La condici&oacute;n que deb&iacute;a cumplir a cambio de hacerse cargo de su deuda era: &laquo;A cambio del pr&eacute;stamo, tienes &ndash; que vivir conmigo&raquo;. 
+                    br
+                    |  &laquo;&iexcl;&iquest;Por qu&eacute; pas&oacute; eso?!&raquo; 
+                    br
+                    |  La vida cotidiana de Yuya se derrumb&oacute; ese d&iacute;a. 
+                    br
+                    |  &laquo;Yuya-kun. Vamos a ba&ntilde;arnos juntos.&raquo; 
+                    br
+                    |  &laquo;Yuya-kun, por favor, s&eacute; mi almohada para abrazar.&raquo; 
+                    br
+                    |  &laquo;&iexcl;Es suficiente, Hitotsuba-san!&raquo; 
+                    br
+                    |  La comedia de amor entre la hermosa, pero f&aacute;cil de llevar Hitotsuba Kaede y el serio y duro Yoshizumi Yuya, &iexcl;comienza ahora!
+
+    figure.backgraoud
+        img(src='img/ryoushinbcak2.jpg' alt='')
+
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

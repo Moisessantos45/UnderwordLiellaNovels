@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title SEKAIICHI KANTAN NA HEROINE NO KOURYAKU SHIKATA
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/SEKAIICHI.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    section.title
+        div.line
+        h1 SEKAIICHI KANTAN NA HEROINE NO KOURYAKU SHIKATA
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/sekaiichi.jpg' alt='')
+        h3 G&eacute;neros: RomCom, Drama, Vida escolar, Sobrenatural, Shōnen.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Orikasa Yujin 織笠　遊人
+            tr
+                th Ilustrador:
+                td Saba Mizore さばみぞれ 
+            tr
+                th Editorial:
+                td Fantasia Bunko
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td Lust
+            tr
+                th Editor de Ilustraciones
+                td Rouni
+            tr
+                th Maquetador de PDF:
+                td ??
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | Conquistar a esta hero&iacute;na deber&iacute;a ser el intento m&aacute;s f&aacute;cil del mundo entero&mldr; &iquest;&iexcl;O no!? 
+                    br
+                    |  Lleno con el humilde deseo de posiblemente salir con la chica que admiro, Himeno Miina, el inesperado apoyo que aparece frente a m&iacute;&mldr; &iexcl;Es la propia chica! &iexcl;Despu&eacute;s de que una entidad mental se separara del cuerpo real de la chica, me veo obligado a conquistar a mi hero&iacute;na para devolver su otra personalidad a su cuerpo real!
+
+    each back in volumene
+        figure.backgraoud
+            img(src=back.backgroud alt='')
+
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

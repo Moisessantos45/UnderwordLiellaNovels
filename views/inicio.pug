@@ -1,0 +1,125 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title UnderWord Liella Novels
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css')
+        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css')
+        link(rel='stylesheet' href='css/styles.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    nav
+     a(href='/')
+        img(src='img/Marca.png' alt='')
+    // titulo del sitio web
+    header
+        .header-content
+            h1  UnderwordLiellaNovels
+    
+    // texto de bienvedida principal
+    section.title
+        h1 TRADUCCIONES DE NOVELAS LIGERAS, MANGAS Y NOVELAS WEB.
+        p Light novels, Mangas and Web Novels translations by fans for fans.
+        img(src='img/Otonari1.jpg' alt='')
+        h1 NOSOTROS, UNDERWORD LIELLA NOVELS
+        pre.
+            Somos un grupo de traductores fanáticos de las novelas ligeras, mangas y anime.
+                        ¿Por qué nos decidimos en crear este grupo?
+                        Pues anteriormente éramos conocidos bajo otro nombre llamado Shinomiya Translations, pero debido a muchos
+                        problemas internos nos vimos obligados a disolver dicho grupo, hasta que el actual fundador #Rouni formó
+                        este nuevo proyecto para traducir las obras que más nos guste dijimos.
+                        ¿Y por qué no intentarlo?
+                        Desde ese entonces hemos trabajado en distintos proyectos tanto mangas, como novelas hasta hoy en día que
+                        continuamos con nuestro arduo trabajo.
+                        Y así nos mantendremos durante un tiempo.
+    figure.swiper.visitados
+        h3.visitados-title Las novelas mas populares
+        figure.swiper-wrapper.visitados-card
+            each visita in visitas
+                img.swiper-slide.visit(src=visita.imagen)
+    
+    section.col-novels
+        div
+            h1.title1 Novelas Ligeras en Traduccion
+        // columnas de las informa de cada novela
+        each novela in novelass
+            figure
+                a(href=`/${novela.nombre.toLowerCase().split(" ")[0]}`)
+                    img(src=novela.imagen alt='')
+                h4=novela.nombre
+    section.col-novels
+        div
+            h1.title1 Novelas Web en Traduccion
+        // columnas de las informa de cada novela
+        each novelsweb in noveNw
+            figure
+                a(href=`/${novelsweb.nombre.toLowerCase().split(" ")[0]}`)
+                    img(src=novelsweb.imagen alt='')
+                h4=novelsweb.nombre
+    section.col-novels
+        div
+            h1.title1 Novelas originales [autores independientes]
+        // columnas de las informa de cada novela
+        each novelsoriginales in noveOri
+            figure
+                a(href=`/${novelsoriginales.nombre.toLowerCase().split(" ")[0]}`)
+                    img(src=novelsoriginales.imagen alt='')
+                h4=novelsoriginales.nombre
+    section.col-novels
+        div
+            h1.title1 Mangas
+        // columnas de las informa de cada novela
+        each manga in mangas
+            figure
+                a(href=`/${manga.nombre.toLowerCase().split(" ")[0]}`)
+                    img(src=manga.imagen alt='')
+                h4=manga.nombre
+
+    // seccion de reclutamiento
+    figure.recluta
+        img(src='img/Recluta.png' alt='')
+        p
+            | Siempre estamos abiertos a reclutamiento. Para mas informacion escribir a la pagina de facebook a nuestro
+            | servidor de discor
+    section.explore
+        .explore-content
+            h1 Facebook
+            // <div class="line"></div>
+            h3 Siguenos en nuestra pagian de facebook donde se suben noticias
+        // iconos de redes sociales
+    section.redes_sociales
+        figure
+            a(href='https://twitter.com/ULNovels' target='_blank')
+                img(src='/img/twitter.png' alt='')
+        figure
+            a(href='https://www.facebook.com/ShLiellaNovels' target='_blank')
+                img(src='/img/face.png' alt='')
+        figure
+            a(href='https://discord.com/invite/v5wVGbG4up' target='_blank')
+                img(src='/img/discor.png' alt='')
+        figure
+            a(href='')
+                img(src='/img/links.png' alt='')
+
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+    script(src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js')
+    script(src='main/cards.js')
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels

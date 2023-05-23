@@ -1,0 +1,86 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Otonari no tenshi-sama ni itsunomanika dame ningen ni saretaita ken
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/otonari.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    section.title
+        div.line
+        h1 Otonari no tenshi-sama ni itsunomanika dame ningen ni saretaita ken
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/Otonari_no.jpg' alt='')
+        h3 G&eacute;neros: Comedia, Drama, Romance, Vida Escolar y Slice of Life.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Saeki-san
+            tr
+                th Ilustrador:
+                td  Hanekoto.
+            tr
+                th Editorial:
+                td SB Creative
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td TornanV / Frikigami
+            tr
+                th Editor de Ilustraciones
+                td Rouni
+            tr
+                th Maquetador de PDF:
+                td Rouni
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | La vecina de Amane Fujimiya en el apartamento en el que vive es el &aacute;ngel adorable n&uacute;mero uno de la escuela: excelente y con un nivel de belleza que solo puede describirse como angelical: Mahiru Shiina. Amane, una estudiante ordinaria que no se destaca, es su vecina, pero hasta ahora no interactuaban entre s&iacute;. Despu&eacute;s de conocer al &aacute;ngel empapado bajo la lluvia:  
+                    br
+                    | &ldquo;Estoy devolviendo lo que ped&iacute; prestado. Por cierto, limpia tu habitaci&oacute;n. Est&aacute; sucio &laquo;. 
+                    br
+                    | &laquo;No es asunto tuyo.&raquo; 
+                    br
+                    | Comienza una relaci&oacute;n con un &aacute;ngel de lengua afilada, comenzando con la entrega de un paraguas. Desde resfriarse y que alguien te cuide, hasta prepararle la comida a alguien porque descuid&oacute; su salud, pasando por el trabajo conjunto (limpieza de habitaciones) &mldr; 
+                    br
+    
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

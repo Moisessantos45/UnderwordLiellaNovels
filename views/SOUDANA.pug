@@ -1,0 +1,93 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title SOUDANA, TASHIKA NI KAWAII NA
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/Soudana.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    section.title
+        div.line
+        h1 SOUDANA, TASHIKA NI KAWAII NA
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/Soudana.jpg' alt='')
+        h3 G&eacute;neros: Comedia, Romance, Vida escolar, Sobrenatural
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Karino Mikata
+            tr
+                th Ilustrador:
+                td Magako.
+            tr
+                th Editorial:
+                td Media Factory
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td Damvert
+            tr
+                th Editor de Ilustraciones
+                td Rouni
+            tr
+                th Maquetador de PDF:
+                td Rouni
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    pre.
+                        Esta novela es una dulce y esponjosa comedia romántica que cuenta los días de un novio y una novia justo después de empezar a salir.
+                        El novio, Watase Kairi, de 17 años, es un estudiante de primer año de Preparatoria (retornado). Acabando de despertar de un coma de 2 años, es un joven un poco problemático.
+                        La novia, Koori Nano, de 16 años, también es de primer año de Preparatoria. Una belleza un poco molesta, a la que le encanta disfrazarse y todo lo que parezca interesante.
+                        La vida cotidiana de los dos se reduce básicamente a esto.
+                        "Senpaaai, ¿acaso no soy super duper linda hoy~? Vamos, no estaría de más que me elogiaras un..."
+                        "Sí, realmente eres linda."
+                        "~~~!"
+                        "¿Koori?
+                        "-¡Esto es exactamente de lo que estoy hablando, Senpai!"
+                        Una historia de una Senpai un poco inconsciente, y el siempre inmediatamente nervioso Kouhai. Sin peligros de una carrera de heroínas o una ruptura, sólo una romcom pura y sana.  
+
+    each back in volumene
+        figure.backgraoud
+            img(src=back.backgroud alt='')
+
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

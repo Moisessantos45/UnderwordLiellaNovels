@@ -1,0 +1,96 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title OMIAI SHITAKUNAKATTANODE, MURI NANDAI NA JOUKEN WO TSUKETARA DOUKYUUSEI GA KITA KEN NI TSUITE
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/omai.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    section.title
+        div.line
+        h1 OMIAI SHITAKUNAKATTANODE, MURI NANDAI NA JOUKEN WO TSUKETARA DOUKYUUSEI GA KITA KEN NI TSUITE
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='https://i.ibb.co/Wf25RkG/Omiai-Portada.jpg' alt='')
+        h3 G&eacute;neros: CComedia, Drama, Romance ,Vida escolar, Slice of Life.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Sakuragi Sakura
+            tr
+                th Ilustrador:
+                td Clear.
+            tr
+                th Editorial:
+                td Kadokawa
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td Frikigami/ Miyuki
+            tr
+                th Editor de Ilustraciones
+                td Rouni
+            tr
+                th Maquetador de PDF:
+                td Rouni
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    pre
+                      | Un d&iacute;a, Yuzuru Takasegawa, un estudiante de primer a&ntilde;o de Preparatoria, es instado por
+                      | su abuelo a acudir a un encuentro matrimonial concertado, insistiendo en que quiere ver a
+                      | su bisnieto antes de morir. Sin embargo, al no querer soportar el peso de una prometida a
+                      | la tierna edad de un estudiante de primer a&ntilde;o de Preparatoria, Yuzuru intenta evitar el
+                      | encuentro matrimonial concertado imponiendo una condici&oacute;n irracional: &ldquo;Si es rubia, de
+                      | ojos azules, de piel clara, etc., s&oacute;lo entonces pensar&eacute; en el matrimonio&rdquo;.
+                      | Pero de alguna manera, encuentra a la chica que cumple con las condiciones que Yuzuru
+                      | ha puesto, y a rega&ntilde;adientes termina yendo a la b&uacute;squeda de pareja s&oacute;lo una vez.
+                      | Y el d&iacute;a de la b&uacute;squeda de pareja, aparece en escena Arisa Yukishiro, una hermosa chica
+                      | con reputaci&oacute;n en la escuela. Al escuchar su historia, parece que ella tambi&eacute;n fue obligada
+                      | a ir a la b&uacute;squeda de pareja a rega&ntilde;adientes. Por lo tanto, los dos intentan evitar m&aacute;s
+                      | propuestas de matrimonio con su falso &ldquo;compromiso&rdquo;.
+                      | Y as&iacute;, mientras hacen el papel de falsos amantes, se encuentran enamorados el uno del
+                      | otro y se convierten en verdaderos amantes.
+
+    figure.backgraoud
+        img(src='https://i.ibb.co/5K7cNJ9/Omiaiback.jpg' alt='')
+
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

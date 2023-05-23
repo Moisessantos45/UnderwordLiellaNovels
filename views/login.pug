@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title login
+        link(rel='stylesheet' href='css/login.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    form.form(action='/login' method="POST")
+        h3.titule Iniciar sesion
+        span.text Ingresa tu usuario
+        input.usuario.input(type='text', placeholder='ingresa el usuario', name="usuario")
+        span.text Ingresa tu contrase&ntilde;a
+        input.password.input(type='password', placeholder='ingresa tu contraseña', name="contraseña", id="password")
+        img.btn_mostrar.mostrar(src='/img/mostrar.png' alt='btn')
+        img.btn_mostrar.ocultar(src='/img/ocultar.png' alt='btn')
+        input.btn(type='submit' value='Inciar')
+        if(errores)
+            each error in errores
+                span.span=error.mensaje
+    script(src='main/password.js')
+

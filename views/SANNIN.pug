@@ -1,0 +1,99 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title SANNIN NO KANOJO NI UWAKI SARETA BOKU O KAWAII GATTE KURETA TENSHI NI DEAIMASHITA
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/sannin.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    section.title
+        div.line
+        h1 SANNIN NO KANOJO NI UWAKI SARETA BOKU O KAWAII GATTE KURETA TENSHI NI DEAIMASHITA
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/sanmin.png' alt='')
+        h3 G&eacute;neros: Adulto, Drama, Netorare, Recuentos de la vida, Romance.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Rouni-kun
+            tr
+                th Ilustrador:
+                td NovelAi.
+            tr
+                th Tipo:
+                td Novela Original
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor al Ingl&eacute;s:
+                td Traducciones Roberth
+            tr
+                th Corrector del Manuscrito:
+                td Moy_45
+            tr
+                th Editor de Ilustraciones
+                td Rouni
+            tr
+                th Maquetador de PDF:
+                td Rouni
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | Yusuke Takahiro, a dos a&ntilde;os de estar viviendo solo en su apartamento lejos de su ciudad natal, vive
+                    | atormentado por su pasado debido a que fue v&iacute;ctima de infidelidad, debido a eso est&aacute; sufriendo un
+                    | estr&eacute;s postraum&aacute;tico. 
+                    br
+                    | Una noche despu&eacute;s de regresar de su trabajo a tiempo parcial, fue testigo de un intento de abuso
+                    | sexual contra una chica llamada Rikka Natsubayashi en la que &eacute;l intervino. 
+                    br
+                    | &mdash;No deber&iacute;as estar en la calle a estas horas&mldr; Vete a casa&mldr; 
+                    br
+                    | &mdash;&iquest;Eh? Espera. 
+                    br
+                    | &mdash;Vete a casa&mldr; 
+                    br
+                    | &iquest;Los d&iacute;as de nuestro protagonista volver&aacute;n a lo que eran, despu&eacute;s de conocer a la hero&iacute;na?
+
+    each back in volumene
+        figure.backgraoud
+            img(src=back.backgroud alt='')
+
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

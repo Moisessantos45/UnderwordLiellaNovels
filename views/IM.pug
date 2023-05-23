@@ -1,0 +1,90 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title I’M SICK AND TIRED OF MY CHILDHOOD FRIEND’S, NOW GIRLFRIEND’S, CONSTANT ABUSE SO I BROKE UP WITH HER
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/IM_SICK.css')
+        link(rel='icon' href='/img/Marca.ico')
+    body
+    section.title
+        div.line
+        h1 I’M SICK AND TIRED OF MY CHILDHOOD FRIEND’S, NOW GIRLFRIEND’S, CONSTANT ABUSE SO I BROKE UP WITH HER
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/imsick.jpg' alt='')
+        h3 G&eacute;neros: Escolar, Recuentos de la vida, Romance, Comedia, Shounen.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Ononata Manimani 斧名田マニマニ 
+            tr
+                th Ilustrador:
+                td U35.
+            tr
+                th Editorial:
+                td Kakuyomu
+            tr
+                th Tipo:
+                td Web Novel
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td ??
+            tr
+                th Editor de Ilustraciones
+                td ??
+            tr
+                th Maquetador de PDF:
+                td ??
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | Mi amiga de la infancia es tambi&eacute;n mi novia. Un sue&ntilde;o hecho realidad, &iquest;verdad? Pues no. Me insulta a diario. Hace trizas mi dignidad y eso afecta mi bienestar mental. No puedo soportarlo m&aacute;s. 
+                    br 
+                    | As&iacute; que no me queda otra opci&oacute;n, voy a romper con ella. Para mantener mi cordura, es la &uacute;nica opci&oacute;n. 
+                    br
+                    | Y as&iacute;, comienza la historia de mi ruptura&mldr;
+
+    each back in volumene
+        figure.backgraoud
+            img(src=back.backgroud alt='')
+
+    section.volumenes        
+        each volumenes in volumene
+            figure.figure
+                img(src=volumenes.imagen alt='')                
+                h4=volumenes.volumen
+                a.link(href=volumenes.drive) Descargar  Drive
+                a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

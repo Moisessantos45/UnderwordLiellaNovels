@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        each title in capitulo
+            title=title.capitulo+" : "+title.titulo
+            link(rel='stylesheet' href='/css/plan_capi_img.css')
+            link(rel='icon' href='/img/Marca.ico')
+    body
+    nav
+      a(href='/')
+        img(src='/img/Marca.png' alt='')
+    header
+        .header-content
+            h1  UnderwordLiellaNovels
+    section.title
+        each title in capitulo
+            .line
+            h1=title.capitulo+" : "+title.titulo
+            .line
+    
+    section.texto_capitulo
+        each capit in capitulo
+            pre=capit.texto
+        .line1
+        .navega
+            if capituloAnterior
+                a(href=`/partials/${capituloAnterior}`)
+                    img(src='/img/previuos.png' alt='')
+            a(href='/SINCE')
+                img(src='/img/home.png' alt='')
+            if capituloSiguiente
+                a(href=`/partials/${capituloSiguiente}`)
+                    img(src='/img/next.png' alt='')
+

@@ -1,0 +1,108 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title KODOKU NA ORE TO KOKOU NA SEWAYAKI MEGAMI-SAMA
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='/css/KODOKU.css')
+        link(rel='icon' href='/img/omai.ico')
+    body
+    section.title
+        div.line
+        h1 KODOKU NA ORE TO KOKOU NA SEWAYAKI MEGAMI-SAMA
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/Lonely.png' alt='')
+        h3 G&eacute;neros: Romance, Vida diaria, Vida escolar.
+    
+    section.minfo
+        table
+            tr
+                th Cr&eacute;ditos: 
+            tr
+                th Autor:
+                td Tsugan
+            tr
+                th Ilustrador:
+                td  Hanekoto.
+            tr
+                th Editorial:
+                td Kakuyomu / Shosetsu (Narou)
+            tr
+                th Tipo:
+                td Web Novel
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del Ingl&eacute;s al Espa&ntilde;ol:
+                td Charlye
+            tr
+                th Editor de Ilustraciones
+                td ??
+            tr
+                th Maquetador de PDF:
+                td ??
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | Quer&iacute;a pasar una p&aacute;gina en mi vida despu&eacute;s de mudarme&mldr; 
+                    br
+                    | Pens&eacute; que pod&iacute;a empezar de nuevo y olvidar mis d&iacute;as de soledad en la escuela secundaria, pero lo que me esperaba all&iacute; era&mldr; 
+                    br
+                    | &iexcl;Compa&ntilde;eros de clase est&uacute;pidos una vez m&aacute;s! 
+                    br
+                    | He tenido suficiente de esta gente. 
+                    br
+                    | Al final, &iquest;Estoy destinado a quedarme solo&mldr;? 
+                    br
+                    | Entonces, una persona se me acerc&oacute;. 
+                    br
+                    | Ella era la vicepresidenta del consejo estudiantil, Satsukawa Sara, conocida por su frialdad hacia los dem&aacute;s, sobre todo hacia los hombres y por su apariencia demasiado hermosa, la &laquo;Diosa Solitaria&raquo;. 
+                    br
+                    | Pero yo, conozco su otro lado&mldr;
+                    br
+                    | Que es tan amable y tiene un lado muy cari&ntilde;oso. 
+                    br
+                    | -Te est&aacute;s volviendo demasiado familiar, &iquest;no? &iexcl;Ustedes&mldr; no se interpongan en el camino! 
+                    br
+                    | -&iexcl;De ahora en adelante, estar&eacute; cuid&aacute;ndote todos los d&iacute;as en tu casa! 
+                    br
+                    | -Toma, te arreglar&eacute; la corbata, pero tienes que quedarte quieto. Si te mueves&mldr; Fu-fu-fu. 
+                    br
+                    | -&iexcl;E-Espera! &iexcl;No hagas eso en un lugar p&uacute;blico! 
+                    br
+                    | Por lo tanto, me aisl&eacute; a&uacute;n m&aacute;s&mldr;
+
+    section.volumenes        
+        //- each volumenes in volumene
+        //-     figure.figure
+        //-         img(src=volumenes.imagen alt='')                
+        //-         h4=volumenes.volumen
+        //-         a.link(href=volumenes.drive) Descargar  Drive
+        //-         a.link(href=volumenes.mega) Descargar Mega
+    
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')
