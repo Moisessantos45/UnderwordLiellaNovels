@@ -1,20 +1,20 @@
-import Sequelize from "sequelize";
+import { DataTypes } from "sequelize";
 import db from "../config/db.js";
 
-export const Capitulos=db.define("capitulos",{
-  capitulo:{
-    type:Sequelize.STRING
+export const Capitulos = db.define("capitulos", {
+  capitulo: {
+    type: DataTypes.STRING,
   },
-  titulo:{
-    type:Sequelize.STRING
+  titulo: {
+    type: DataTypes.STRING,
   },
   texto: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING,
   },
-  nameingles:{
-    type: Sequelize.STRING
+  nameingles: {
+    type: DataTypes.STRING,
   },
-  num:{
-    type: Sequelize.INTEGER
-  }
+  num: {
+    type: DataTypes.INTEGER,
+  },
 });

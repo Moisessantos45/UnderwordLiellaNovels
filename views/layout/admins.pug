@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        title Panel de admnistracion
+        title Panel de admnistracion 
         link(rel='stylesheet' href='/css/panel.css')
         script(src='https://code.jquery.com/jquery-3.6.3.js')
         link(rel='icon' href='/img/iconweb.ico')
@@ -20,9 +20,9 @@ html(lang="en")
             .login-ventana
                 p Perfil
                 p Ajustes
-                form.cerrar-sesion(action='' method="POST")
-                    input.usser(type='text', placeholder='nombre',name="usuario",)                    
-                    input.login-sesion(type='submit' value='cerrarsesion',name="tipo")
+                form.cerrar-sesion(action='/logout' method="POST")
+                    input.usser(type='text' placeholder='nombre' name="usuario",)                    
+                    input.login-sesion(type='submit' value='cerrarsesion' name="tipo")
         section.container
             h2.text-title Descripcion
             ul.explicacion
@@ -31,77 +31,89 @@ html(lang="en")
                 li.list-exp
                     a.link(href='#' target='_blank') Link de Tutorial de como llenar los campos
                 li.list-exp
+                    a.link(href='#' target='_blank') Pagina para subir mangas
+                li.list-exp
                     a.link(href='/imagenurl' target='_blank') Link de para subir la img y obtener la url
-        
+
         img.menu-slider(src='/img/bars.png' alt='')
         section.slider-vertical
             h3.slider-title Panel de opciones
             ul.list-slider
-                li.list-opciones.agre
-                    img.icons-opciones.invert(src='/img/card.png' alt='')
-                    | Agregar un volumen
-                li.list-opciones.actu
-                    img.icons-opciones(src='/img/actualizar.png' alt='')
-                    | Actulizar un novela
-                li.list-opciones.agrecapi
-                    img.icons-opciones(src='/img/novel.png' alt='')
-                    | Agregar capitulo
-                li.list-opciones.delatecards
-                    img.icons-opciones.invert(src='/img/eliminar.png' alt='')
-                    | Eliminar un volumen
-                li.list-opciones.actucapi
-                    img.icons-opciones.invert(src='/img/contenido.png' alt='')
-                    | Actulizar un capitulo
-                li.list-opciones.dalatechars
-                    img.icons-opciones(src='/img/boton-eliminar.png' alt='')
-                    | Eliminar un capitulo
-                li.list-opciones.visitas-pag
-                    img.icons-opciones.invert(src='/img/visitas.png' alt='')
-                    | Ver visitas de la pagina
-                li.list-opciones.contenido-ver
-                    img.icons-opciones.invert(src='/img/bases.png' alt='')
-                    | Contenido de la base de datos
+                li.list-opciones
+                    img.icons-opciones.Agregar_vol.filter(src='/img/card.png' alt='')
+                    span.Agregar_vol Agregar un volumen
+                li.list-opciones
+                    img.icons-opciones.update_vol(src='/img/actualizar.png' alt='')
+                    span.update_vol Actulizar un novela
+                li.list-opciones
+                    img.icons-opciones.dalate_vol.filter(src='/img/eliminar.png' alt='')
+                    span.dalate_vol Eliminar un volumen
+                li.list-opciones
+                    img.icons-opciones.Agregar_cap(src='/img/novel.png' alt='')
+                    span.Agregar_cap  Agregar un capitulo
+                li.list-opciones
+                    img.icons-opciones.update_cap.filter(src='/img/contenido.png' alt='')
+                    span.update_cap Actulizar un capitulo
+                li.list-opciones
+                    img.icons-opciones.dalate_cap(src='/img/boton-eliminar.png' alt='')
+                    span.dalate_cap  Eliminar un capitulo
+                li.list-opciones
+                    img.icons-opciones.visitas.filter(src='/img/visitas.png' alt='')
+                    span.visitas Ver visitas de la pagina
+                li.list-opciones
+                    img.icons-opciones.contenido_data.filter(src='/img/bases.png' alt='')
+                    span.contenido_data Contenido de la base de datos
 
-        form.actulizar(action='/layout/admins' method="POST")
+        form.update_vol.form_ocultar.form(action='/layout/admins' method="PUT")
             h3.titule Actulizar un nuevo volumen
-            span.text Ingresa el nombre de la novela
-            input.usuario.input(type='text', placeholder='Nombre de la novela',name="nombre")
-            span.text Ingresa el volumen
-            input.volume.input(type='text', placeholder='volumen',name="volumen")
+            span.text Selecciona la novela
+            select.carpeta(name='nombrenovel')
+                each datos in datosBase
+                    option(value=`${datos.nombre}`)= datos.nombre
+            span.text Selecciona el volumen
+            select.carpeta(name='volumennovel')
+                each datos in datosBase
+                    option(value=`${datos.volumen}`)=datos.nombre +" "+ datos.volumen           
             span.text Link de Drive
-            input.drive.input(type='text', placeholder='link de drive',name="drive")
+            input.drive.input(type='text' placeholder='link de drive' name="drive")
             span.text Link de Mega
-            input.mega.input(type='text', placeholder='link de mega',name="mega")
+            input.mega.input(type='text' placeholder='link de mega' name="mega")
             span.text Link de Imagen
-            input.imagen.input(type='text', placeholder='link de imagen',name="imagen")
-            input.usuario.input(type='text', placeholder='no llenar',name="tipo", value="actuliazar")
+            input.imagen.input(type='text' placeholder='link de imagen' name="imagen")
+            input.usuario.input(type='text' placeholder='no llenar' name="tipo" value="actuliazar")
             input.btn(type='submit' value='Actulizar')
 
-        form.form.agregar(action='/layout/admins' method="POST")
+        form.Agregar_vol.form_agr.form(action='/layout/admins' method="POST")
             h3.titule Agregar un volumen
-            span.text Ingresa el nombre de la novela
-            input.usuario.input(type='text', placeholder='Nombre de la novela',name="nombre")
+            span.text Selecciona el nombre de la novela
+            select.carpeta(name='nombrenovel')
+                each datos in datosBase
+                    option(value=`${datos.nombre}`)= datos.nombre
             span.text Ingresa el volumen
-            input.volume.input(type='text', placeholder='volumen',name="volumen")
+            input.volume.input(type='text' placeholder='volumen' name="volumen")
             span.text Link de Drive
-            input.drive.input(type='text', placeholder='link de drive',name="drive")
+            input.drive.input(type='text' placeholder='link de drive' name="drive")
             span.text Link de Mega
-            input.mega.input(type='text', placeholder='link de mega',name="mega")
+            input.mega.input(type='text' placeholder='link de mega' name="mega")
             span.text Link de Imagen
-            input.imagen.input(type='text', placeholder='link de imagen',name="imagen")
-            input.usuario.input(type='text', placeholder='no llenar',name="tipo", value="agregar")
+            input.imagen.input(type='text' placeholder='link de imagen' name="imagen")
+            input.usuario.input(type='text' placeholder='no llenar' name="tipo" value="agregar")
             input.btn(type='submit' value='Agregar')
 
-        form.delatecard.eliminarvol(action='/layout/admins' method="POST")
+        form.dalate_vol.form_ocultar.form.delate-novel(action='/layout/admins/vol' method="DELETE")
             h3.titule Eliminar un volumen o novela
-            span.text Ingresa el nombre de la novela
-            input.usuario.input(type='text', placeholder='Nombre de la novela',name="nombre")
-            span.text Ingresa el volumen
-            input.volume.input(type='text', placeholder='volumen',name="volumen")
-            input.usuario.input(type='text', placeholder='no llenar',name="tipo", value="eliminarVol")
+            span.text selecion la novela
+            select.carpeta(name='nombrenovel')
+                each datos in datosBase
+                    option(value=`${datos.nombre}`)= datos.nombre
+            span.text Selecciona el volumen
+            select.carpeta(name='volumennovel')
+                each datos in datosBase
+                    option(value=`${datos.volumen}`)=datos.nombre +" "+ datos.volumen  
+            input.usuario.input(type='text' placeholder='no llenar' name="tipo" value="eliminarVol")
             input.btn(type='submit' value='Eliminar')
-        
-        form.capitulo.ocultar-capi(action='/layout/admins' method="POST")
+
+        form.Agregar_cap.form_ocultar.form(action='/layout/admins/capi' method="POST")
             h3.titule Agregar un Capitulo
             span.text Ingresa el capitulo
             input.usuario.input(type='text' placeholder='capitulo' name="capitulo")
@@ -111,12 +123,12 @@ html(lang="en")
             input.drive.input(type='text' placeholder='asi sinceten' name="nameingles")
             span.text El numero del capitlo
             input.mega.input(type='text' placeholder='numero' name="num")
-            input.usuario.input(type='text', placeholder='no llenar',name="tipo", value="agregarcapi")
+            input.usuario.input(type='text' placeholder='no llenar' name="tipo" value="agregarcapi")
             span.text Ingresa el contenido del capitulo
             textarea.texto.input(name='texto' rows='5' cols='8')
             input.btn(type='submit' value='Agregar')
 
-        form.actu-capitulo.ocultar-capi-act(action='/layout/admins' method="POST")
+        form.update_cap.form_ocultar.form(action='/layout/admins/capi' method="PUT")
             h3.titule Actulizar un Capitulo
             span.text Ingresa el capitulo
             input.usuario.input(type='text' placeholder='capitulo' name="capitulo")
@@ -126,81 +138,81 @@ html(lang="en")
             input.drive.input(type='text' placeholder='asi sinceten' name="nameingles")
             span.text El numero del capitulo
             input.mega.input(type='text' placeholder='numero' name="num")
-            input.usuario.input(type='text', placeholder='no llenar',name="tipo", value="actucapi")
+            input.usuario.input(type='text' placeholder='no llenar' name="tipo" value="actucapi")
             span.text Ingresa el contenido del capitulo
             textarea.texto.input(name='texto' rows='5' cols='8')
             input.btn(type='submit' value='Actulizar')
 
-        form.delatechar.eliminarcapi(action='/layout/admins' method="POST")
+        form.dalate_cap.form_ocultar.form.dalte(action='/layout/admins/capi' method="DELETE")
             h3.titule Eliminar un Capitulo
             span.text Ingresa el capitulo
             input.usuario.input(type='text' placeholder='capitulo' name="capitulo")
             span.text El numero del capitulo
             input.mega.input(type='text' placeholder='numero' name="num")
-            input.usuario.input(type='text', placeholder='no llenar',name="tipo", value="actucapi")
+            input.usuario.input(type='text' placeholder='no llenar' name="tipo" value="eliminarCap")
             input.btn(type='submit' value='Eliminar')
-        
-        
-        section.datos_base.datos_ocul            
-                table.table1
-                    caption Lista de volumenes
-                    thead
+
+
+        section.contenido_data.datos_base.form_ocultar.form     
+            table.table1
+                caption Lista de volumenes
+                thead
+                    tr
+                        th Nombre
+                        th Volumen
+                        th imagen
+                tbody
+                    each datos in datosBase
                         tr
-                            th Nombre
-                            th Volumen
-                            th imagen
-                    tbody
-                        each datos in datosBase
-                            tr
-                                td= datos.nombre
-                                td= datos.volumen  
-                                td= datos.imagen    
-                table.table2
-                    caption Lista de links de los volumnes
-                    thead
+                            td= datos.nombre
+                            td= datos.volumen  
+                            td= datos.imagen    
+            table.table2
+                caption Lista de links de los volumnes
+                thead
+                    tr
+                        th Drive
+                        th Mega
+                tbody
+                    each datos in datosBase
+                        tr 
+                            td=datos.drive ? datos.drive.substr(0,80) : '' 
+                            td=datos.mega ? datos.mega.substr(0,80) : '' 
+            //- table.table3
+            //-     caption Lista de capitulos
+            //-     thead
+            //-         tr
+            //-             th Capitulo
+            //-             th Titulo
+            //-             th Nomnbre en ingles
+            //-     tbody
+            //-         each capit in datosCapi
+            //-             tr
+            //-                 td= capit.capitulo
+            //-                 td= capit.titulo
+            //-                 td= capit.nameingles
+            //- table.table4
+            //-     thead
+            //-         tr
+            //-             th Contenido
+            //-             th Numero
+            //-     tbody
+            //-         each capit in datosCapi
+            //-             tr
+            //-                 td= capit.texto.substr(0,165)
+            //-                 td= capit.num
+        section.visitas.datos_base-two.form_ocultar.form     
+            table
+                thead
+                    tr
+                        th Nombre de la novela
+                        th Cantidad de visistas de la novela
+                tbody
+                    each visitas in visitasNovelas
                         tr
-                            th Drive
-                            th Mega
-                    tbody
-                        each datos in datosBase
-                            tr 
-                                td=datos.drive ? datos.drive.substr(0,80) : ''
-                                td=datos.mega ? datos.mega.substr(0,80) : ''    
-                //- table.table3
-                //-     caption Lista de capitulos
-                //-     thead
-                //-         tr
-                //-             th Capitulo
-                //-             th Titulo
-                //-             th Nomnbre en ingles
-                //-     tbody
-                //-         each capit in datosCapi
-                //-             tr
-                //-                 td= capit.capitulo
-                //-                 td= capit.titulo
-                //-                 td= capit.nameingles
-                //- table.table4
-                //-     thead
-                //-         tr
-                //-             th Contenido
-                //-             th Numero
-                //-     tbody
-                //-         each capit in datosCapi
-                //-             tr
-                //-                 td= capit.texto.substr(0,165)
-                //-                 td= capit.num
-        section.datos_base-two.datos_ocul-visit         
-                table
-                    thead
-                        tr
-                            th Nombre de la novela
-                            th Cantidad de visistas de la novela
-                    tbody
-                        each visitas in visitasNovelas
-                            tr
-                                td= visitas.nombre
-                                td= visitas.visitas
-        
+                            td= visitas.nombre
+                            td= visitas.visitas
+
         section.footer
             p Derechos Reservados
             p Copyright &copy; 2023 UnderwordLiellaNovels

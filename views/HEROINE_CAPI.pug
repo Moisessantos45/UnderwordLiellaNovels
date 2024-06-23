@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Mostrar contenido
+        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css')
+        link(rel='stylesheet' href='css/img_manga.css')
+    body
+        header.header
+            h2.title Underwordliellanovels
+        section.visualzacion
+            button.cascada.vertical
+                img(src="img/copy.png", alt="", class="img_copy")
+                | Vertical 
+            button.cascada.horizontal
+                img(src="img/horizontal.png", alt="", class="img_copy")
+                | Horizontal
+        section.swiper.container_img_capi
+            figure.container_img
+                each imagen in listaImagenes
+                    div.swiper-slide
+                        img(src=`/contenido/Heroine/${primeraCarpeta}/${imagen}`, alt="Imagen", class="img_capi")
+            .swiper-button-next.btn_nave-slider
+            .swiper-button-prev.btn_nave-slider
+
+        form.form(action="/HEROINE_CAPI" method="POST")
+            input(type="hidden", name="ruta", value=`${primeraCarpeta}`)
+            if mostrarRetroceder
+                button.btn_nave(type="submit", name="accion", value="retroceder") Retroceder
+            a(href="/HEROINE" class="form_home btn_nave") Inicio
+            if mostrarAvanzar
+                button.btn_nave(type="submit", name="accion", value="avanzar") Avanzar
+        script(src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js')
+        script(src="main/mangas.js")
+
+

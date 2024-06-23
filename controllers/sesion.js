@@ -2,9 +2,6 @@ import { Login } from "../models/login.js";
 import { Cards } from "../models/voluem.js";
 import { Capitulos } from "../models/Capitulos.js";
 import { Novela } from "../models/Novelas.js";
-import { createClient } from "redis";
-
-const redisClient = createClient();
 
 const admin = async (req, res) => {
   const volumene = await Login.findAll({
@@ -12,7 +9,7 @@ const admin = async (req, res) => {
       usuario: "rouni",
     },
   });
-  console.log("valor de gurdad", volumene);
+
   res.render("panel", {
     pagina: "panel",
     volumene,
@@ -20,27 +17,29 @@ const admin = async (req, res) => {
 };
 
 const administrador = async (req, res) => {
-  const volumene = await Login.findOne({ where: { sesion: true } });
-  const contenido = await Login.findAll({ where: { usuario: "rouni" } });
-  const datosBase = await Cards.findAll();
-  const datosCapi = await Capitulos.findAll();
-  const visitasNovelas = await Novela.findAll();
+  try {
+    const [contenido, datosBase, datosCapi, visitasNovelas] = await Promise.all(
+      [
+        Login.findAll({ where: { usuario: "rouni" } }),
+        Cards.findAll(),
+        Capitulos.findAll(),
+        Novela.findAll(),
+      ]
+    );
 
-  const secret = req.session.secret;
-  const secretCookie = req.cookies.secret;
-
-  if (!secret || secret !== secretCookie || !volumene || volumene.secret !== secret) {
-    return res.redirect("/login");
+    res.render("layout/admins", {
+      pagina: "admins",
+      contenido,
+      datosBase,
+      datosCapi,
+      visitasNovelas,
+    });
+  } catch (error) {
+    res.render("error", {
+      pagina: "error",
+      mensaje: "Ha ocurrido un error en el servidor",
+    });
   }
-
-  res.render("layout/admins", {
-    pagina: "admins",
-    contenido,
-    datosBase,
-    datosCapi,
-    visitasNovelas,
-  });
 };
 
 export { admin, administrador };
-

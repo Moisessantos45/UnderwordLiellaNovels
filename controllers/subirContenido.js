@@ -1,145 +1,161 @@
-import { Cards } from "../models/voluem.js"
-import { Login } from "../models/login.js";
-import { Capitulos } from "../models/Capitulos.js"
+import { Cards } from "../models/voluem.js";
+import { Capitulos } from "../models/Capitulos.js";
 
-const sesio = async (sesion) => {
-    const inicio = await Login.findOne({ where: { sesion } });
-    if (inicio) {
-        inicio.sesion = false;
-        inicio.secret = "";
-        await inicio.save();
-    }
-};
-const enviar = async (req, res) => {
-    const { nombre, volumen, drive, mega, imagen, tipo, usuario, capitulo, titulo, texto, nameingles,
-        num
-    } = req.body;
-    try {
-        if (tipo === "actuliazar") {
-            const card = await Cards.findOne({ where: { nombre: nombre, volumen: volumen } });
+const uploadContent = async (req, res) => {
+  const { nombre, volumen, drive, mega, imagen } = req.body;
+  try {
+    await Cards.create({
+      volumen,
+      drive,
+      mega,
+      imagen,
+      nombre,
+    });
 
-            if (!card) {
-                return res.status(404).json({ mensaje: "La tarjeta no existe" });
-            }
-            // Validación de campos
-            if (volumen && volumen !== "") {
-                card.volumen = volumen;
-            }
-            if (drive && drive !== "") {
-                card.drive = drive;
-            }
-            if (mega && mega !== "") {
-                card.mega = mega;
-            }
-            if (imagen && imagen !== "") {
-                card.imagen = imagen;
-            }
-            if (nombre && nombre !== "") {
-                card.nombre = nombre;
-            }
-
-            try {
-                await card.save();
-                res.redirect("/layout/admins");
-            } catch (error) {
-                console.log(error);
-            }
-        } else if (tipo === "agregar") {
-            await Cards.create({
-                volumen,
-                drive,
-                mega,
-                imagen,
-                nombre,
-            });
-            res.redirect("/layout/admins");
-        } else if (tipo == "agregarcapi") {
-            await Capitulos.create({
-                capitulo,
-                titulo,
-                texto,
-                nameingles,
-                num,
-            });
-            res.redirect("/layout/admins");
-        } else if (tipo == "actucapi") {
-            const capituloMayus = capitulo.charAt(0).toUpperCase() + capitulo.substring(1);
-            const capi = await Capitulos.findOne({ where: { capitulo: capituloMayus, nameingles: nameingles, num: num } });
-            if (!capi) {
-                return res.status(404).json({ mensaje: "La tarjeta no existe" });
-            }
-            // Validación de campos
-            if (capitulo && capitulo !== "") {
-                capi.capitulo = capitulo;
-            }
-            if (titulo && titulo !== "") {
-                capi.titulo = titulo;
-            }
-            if (texto && texto !== "") {
-                capi.texto = texto;
-            }
-            if (nameingles && nameingles !== "") {
-                capi.nameingles = nameingles;
-            }
-            if (num && num !== "") {
-                capi.num = num;
-            }
-            try {
-                await capi.save();
-                res.redirect("/layout/admins");
-            } catch (error) {
-                console.log(error);
-            }
-        } else if (tipo == "eliminarVol") {
-            try {
-                await Cards.destroy({
-                  where: {
-                    nombre: nombre,
-                    volumen: volumen
-                  }
-                });
-                res.redirect("/layout/admins");
-              } catch (error) {
-                console.log(error);
-                res.redirect("/error"); // redirigir a una página de error personalizada
-            }            
-        }
-        else if (tipo == "eliminarCapi") {
-            const capiMuy = capitulo.charAt(0).toUpperCase() + capitulo.substring(1);
-            await Capitulos.destroy({
-                where: {
-                    capitulo: capiMuy,
-                    volumen: num
-                }
-            });
-            res.redirect("/layout/admins");
-        }
-        else if (tipo === "cerrarsesion") {
-            const login = await Login.findOne({ where: { usuario } });
-            if (!login) {
-                return res.status(404).json({ mensaje: "Inicio de sesión no encontrado" });
-            }
-            let cambio = login.sesion;
-            await sesio(cambio);
-            res.clearCookie("secret");
-            res.redirect("/login");
-        }
-        else {
-            res.render("error", {
-                pagina: "error",
-                mensaje: "Acción no válida",
-            });
-        }
-    } catch (error) {
-        console.log(error);
-        res.render("error", {
-            pagina: "error",
-            mensaje: "Ha ocurrido un error en el servidor",
-        });
-    }
+    res.redirect("/layout/admins");
+  } catch (error) {
+    res.render("error", {
+      pagina: "error",
+      mensaje: "Ha ocurrido un error en el servidor",
+    });
+  }
 };
 
+const agregarCapi = async (req, res) => {
+  const { capitulo, titulo, texto, nameingles, num } = req.body;
+  try {
+    await Capitulos.create({
+      capitulo,
+      titulo,
+      texto,
+      nameingles,
+      num,
+    });
+    res.redirect("/layout/admins");
+  } catch (error) {
+    res.render("error", {
+      pagina: "error",
+      mensaje: "Ha ocurrido un error en el servidor",
+    });
+  }
+};
+
+const updateDataCapi = async (req, res) => {
+  const { capitulo, titulo, texto, nameingles, num } = req.body;
+  try {
+    const capituloMayus =
+      capitulo.charAt(0).toUpperCase() + capitulo.substring(1);
+
+    const capi = await Capitulos.findOne({
+      where: { capitulo: capituloMayus, nameingles: nameingles, num: num },
+    });
+
+    if (!capi) {
+      return res.status(404).json({ mensaje: "La tarjeta no existe" });
+    }
+    // Validación de campos
+    if (capitulo && capitulo !== "") {
+      capi.capitulo = capitulo;
+    }
+    if (titulo && titulo !== "") {
+      capi.titulo = titulo;
+    }
+    if (texto && texto !== "") {
+      capi.texto = texto;
+    }
+    if (nameingles && nameingles !== "") {
+      capi.nameingles = nameingles;
+    }
+    if (num && num !== "") {
+      capi.num = num;
+    }
+
+    await capi.save();
+    res.redirect("/layout/admins");
+  } catch (error) {
+    res.render("error", {
+      pagina: "error",
+      mensaje: "Ha ocurrido un error en el servidor",
+    });
+  }
+};
+
+const updateData = async (req, res) => {
+  const { nombre, volumen, volumennovel, nombrenovel, drive, mega, imagen } =
+    req.body;
+  try {
+    const card = await Cards.findOne({
+      where: { nombre: nombrenovel, volumen: volumennovel },
+    });
+
+    if (!card) {
+      return res.status(404).json({ mensaje: "La tarjeta no existe" });
+    }
+    // Validación de campos
+    if (volumen && volumen !== "") {
+      card.volumen = volumen;
+    }
+    if (drive && drive !== "") {
+      card.drive = drive;
+    }
+    if (mega && mega !== "") {
+      card.mega = mega;
+    }
+    if (imagen && imagen !== "") {
+      card.imagen = imagen;
+    }
+    if (nombre && nombre !== "") {
+      card.nombre = nombre;
+    }
+
+    await card.save();
+    res.redirect("/layout/admins");
+  } catch (error) {
+    res.render("error", {
+      pagina: "error",
+      mensaje: "Ha ocurrido un error en el servidor",
+    });
+  }
+};
+
+const deleteDataCapi = async (req, res) => {
+  const { capitulo, num } = req.body;
+  try {
+    const capiMuy = capitulo.charAt(0).toUpperCase() + capitulo.substring(1);
+    await Capitulos.destroy({
+      where: {
+        capitulo: capiMuy,
+        volumen: num,
+      },
+    });
+
+    res.redirect("/layout/admins");
+  } catch (error) {
+    res.redirect("/error"); // redirigir a una página de error personalizada
+  }
+};
+
+const deleteDataVol = async (req, res) => {
+  const { volumennovel, nombrenovel } = req.body;
+  try {
+    await Cards.destroy({
+      where: {
+        nombre: nombrenovel,
+        volumen: volumennovel,
+      },
+    });
+
+    res.redirect("/layout/admins");
+  } catch (error) {
+    res.redirect("/error"); // redirigir a una página de error personalizada
+  }
+};
 
 export {
-    enviar
-}
+  uploadContent,
+  agregarCapi,
+  updateDataCapi,
+  updateData,
+  deleteDataCapi,
+  deleteDataVol,
+};

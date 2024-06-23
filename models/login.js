@@ -1,17 +1,17 @@
-import Sequelize from "sequelize";
+import { DataTypes } from "sequelize";
 import db from "../config/db.js";
 
-export const Login=db.define("cuentas",{
-  usuario:{
-    type:Sequelize.STRING
+export const Login = db.define("cuentas", {
+  usuario: {
+    type: DataTypes.STRING,
   },
-  contraseña:{
-    type:Sequelize.NUMBER
+  contraseña: {
+    type: DataTypes.STRING,
   },
   sesion: {
-    type: Sequelize.TINYINT
+    type: DataTypes.BOOLEAN,
   },
-  secret:{
-    type: Sequelize.STRING
-  }
+  secret: {
+    type: DataTypes.STRING,
+  },
 });

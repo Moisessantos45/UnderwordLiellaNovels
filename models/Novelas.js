@@ -1,18 +1,18 @@
-import Sequelize from "sequelize";
+import { DataTypes } from "sequelize";
 import db from "../config/db.js";
 
-export const Novela=db.define("infonovels",{
-  nombre:{
-    type:Sequelize.STRING
+export const Novela = db.define("infonovels", {
+  nombre: {
+    type: DataTypes.STRING,
   },
-  imagen:{
-    type:Sequelize.STRING
+  imagen: {
+    type: DataTypes.STRING,
   },
   visitas: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
   },
-  tipo:{
-    type:Sequelize.STRING
-  }
+  tipo: {
+    type: DataTypes.STRING,
+  },
 });

@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #242f49;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: #101010;
+  width: 100%;
+  height: 50px;
+  color: white;
+  align-items: center;
+}
+
+.title {
+  background: transparent;
+}
+
+.visualzacion {
+  width: 90%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.cascada {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  outline: none;
+  display: flex;
+  color: white;
+  background: #384358;
+  border-radius: 20px;
+  width: 120px;
+  height: 30px;
+  margin: 10px;
+}
+
+.img_copy {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+  background: transparent;
+}
+
+.container_img_capi {
+  display: flex;
+  width: 92%;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_img {
+  width: 98%;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  transition: 0.5s;
+  transform: none;
+}
+
+.swiper_conatiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_capi {
+  display: flex;
+  width: 85%;
+  height: auto;
+  /* margin: 10px; */
+}
+
+.form {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin: 10px auto;
+}
+
+.btn_nave {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: flex;
+  color: white;
+  background: #384358;
+  border-radius: 20px;
+  width: 120px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.form_home {
+  text-decoration: none;
+}
+
+.ocultar {
+  display: none;
+}
+
+.btn_nave-slider {
+  background: transparent;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  height: auto;
+  width: 100%;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .swiper-wrapper {
+    height: 550px;
+  }
+  .swiper-slide img {
+    display: block;
+    width: 90%;
+    height: 100%;
+  }
+}

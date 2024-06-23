@@ -1,0 +1,82 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Heroine wa zetsubou shimashita.
+        script(src='https://code.jquery.com/jquery-3.6.3.js')
+        link(rel='stylesheet' href='css/HAZUKASHIGARIYA.css')
+        link(rel='icon' href='/img/omai.ico')
+    body
+    section.title
+        div.line
+        h1 Heroine wa zetsubou shimashita
+        h3 Hiroin wa zetsubou shimashita ; ヒロインは絶望しました
+        div.line
+
+    // ilustracion de la descripcion
+    section.ilustracion
+        img(src='img/Heroine.jpg' alt='')
+        h3 G&eacute;neros: Accion, Drama, Ecchi, Fantasy, Psychological, Romance, School life, Shounen.
+    
+    section.minfo
+        table            
+            tr
+                th Estado
+            tr
+                th En curso
+                td   
+            tr
+                th Titulos Alternativos:
+                td
+                    | Hiroin wa zetsubou shimashita ; ヒロインは絶望しました 
+            tr
+                th Tipo:
+                td Manga
+            tr
+                th Encargados de la Traducci&oacute;n:
+            tr
+                th Traductor del japones al Espa&ntilde;ol:
+                td Underwordliellanovels
+            tr
+                th Corrector
+                td Underwordliellanovels
+            tr
+                th Editor de Ilustraciones
+                td Underwordliellanovels
+            tr.sinop
+                th(colspan='2') Sinopsis:
+            tr.sinop2
+                td(colspan='2')
+                    | Su vida cotidiana se ha visto repentinamente ensuciada por la sangre y la humillación. Shibuya Mei, una chica de instituto alegre y popular, fue trasladada al otro mundo y, sin saber por qué, fue devorada hasta la muerte por los monstruos que había allí. En el otro mundo sintió cada instante de "morir" y cuando finalmente murió, se encontró de nuevo en su mundo. Sucedió muchas, muchas veces una y otra vez. Se sentía como si estuviera a punto de volverse loca por el dolor y los recuerdos tristes, cuando conoció a un chico: Akiba Yugami. Él liberó a la chica de las cadenas del mundo virtual en el que se encontraba, pero no era tan bueno como ella pensaba. Esta es la historia de una joven que lucha por su dignidad.
+    
+    section.volumenes        
+        figure.figure
+            img(src="img/Heroine.jpg" alt='')                
+            h4 Leer capitulos disponibles
+            div.capit
+                a(href='/HEROINE_CAPI')
+                    img(src='img/flecha.png' alt='')
+                    |  Capitulos
+      
+    #disqus_thread
+    script.
+        (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://underwordliellanovelsm.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    noscript
+        | Please enable JavaScript to view the 
+        a(href='https://disqus.com/?ref_noscript')
+            | comments powered by
+            | Disqus.
+
+    // la parte de abajo
+    section.footer
+        p Derechos Reservados
+        p Copyright &copy; 2023 UnderwordLiellaNovels
+    script(src='main/url.js')
+    script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')
